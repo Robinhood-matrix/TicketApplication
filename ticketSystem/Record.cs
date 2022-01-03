@@ -1,20 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace ticketSystem
 {
-    public partial class Record : Form
+    class Record
     {
-        public Record()
-        {
-            InitializeComponent();
-        }
+        public int Id { get; set; }
+        public string Type { get; set; }
+        public int Count { get; set; }
+        public DateTime EntryTime { get; set; }
+        public DateTime ExitTime { get; set; }
+        public int TotalCost { get; set; }
+        public bool HasLeft { get; set; }
     }
 }

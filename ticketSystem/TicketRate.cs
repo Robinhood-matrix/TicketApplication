@@ -18,20 +18,20 @@ namespace ticketSystem
         public TicketRate()
         {
             InitializeComponent();
-            ShowTicketRate();
+           ReadWeekdayTicketRate();
             
         }
 
-        public void ShowTicketRate()
+        public void ReadWeekdayTicketRate()
         {
             List<Ticket> TicketRateList = new List<Ticket>();
-            string[] RateList = File.ReadAllLines("C:\\3rd_year\\Application_Development\\CW\\TicketRate.csv");
+            string[] RateList = File.ReadAllLines(GlobalValues.WeekdayRateFilepath);
             foreach (string s in RateList)
             {
                 try
                 {
                     string[] st = s.Split(',');
-                    if (st.Length != 6) continue;
+                    if (st.Length != 6) continue;// for checking valid records;
 
                     Ticket tR = new Ticket();
                     tR.TicketType = st[0];
@@ -39,6 +39,7 @@ namespace ticketSystem
                     tR.Rate2Hr = Convert.ToInt32(st[2]);
                     tR.Rate3Hr = Convert.ToInt32(st[3]);
                     tR.Rate4Hr = Convert.ToInt32(st[4]);
+                    tR.RateWholeDay = Convert.ToInt32(st[5]);
 
 
                     TicketRateList.Add(tR);
@@ -52,10 +53,10 @@ namespace ticketSystem
             }
             rateView.DataSource = TicketRateList;
         }
-        private void ReadHolidayFile()
+        public void ReadHolidayTicketRate()
         {
-            List<Ticket> TicketRateList = new List<Ticket>();
-            string[] RateList = File.ReadAllLines("C:\\3rd_year\\Application_Development\\CW\\Holiday.csv");
+            List<Ticket> HTicketRateList = new List<Ticket>();
+            string[] RateList = File.ReadAllLines(GlobalValues.HolidayFilepath);
             foreach (string s in RateList)
             {
                 try
@@ -69,9 +70,10 @@ namespace ticketSystem
                     tR.Rate2Hr = Convert.ToInt32(st[2]);
                     tR.Rate3Hr = Convert.ToInt32(st[3]);
                     tR.Rate4Hr = Convert.ToInt32(st[4]);
+                    tR.RateWholeDay= Convert.ToInt32(st[5]);
 
 
-                    TicketRateList.Add(tR);
+                    HTicketRateList.Add(tR);
                 }
                 catch (FormatException)
                 {
@@ -80,7 +82,7 @@ namespace ticketSystem
 
 
             }
-            rateView.DataSource = TicketRateList;
+            rateView.DataSource = HTicketRateList;
         }
 
 
@@ -90,11 +92,11 @@ namespace ticketSystem
             int index = dayComboBox.SelectedIndex;
             if (index == 0)
             {
-                ShowTicketRate();
+                ReadWeekdayTicketRate();
             }
             else if (index == 1)
             {
-                ReadHolidayFile();
+                ReadHolidayTicketRate();
             }
         }
 
@@ -102,6 +104,64 @@ namespace ticketSystem
         private void TicketRate_Load(object sender, EventArgs e)
         {
 
+        }
+
+       
+        private void reloadBtn_Click(object sender, EventArgs e)
+        {
+            int index = dayComboBox.SelectedIndex;
+            if (index == 0)
+            {
+                if(GlobalValues.IsAdmin)
+                {
+                    TextWriter writer = new StreamWriter(GlobalValues.WeekdayRateFilepath);
+                    for (int i=0;i< rateView.Rows.Count;i++)
+                    {
+                        for (int j=0;j<rateView.Columns.Count;j++)
+                        {
+                            writer.Write(rateView.Rows[i].Cells[j].Value.ToString());
+                            if(j<rateView.Columns.Count - 1)
+                            {
+                                writer.Write(",");
+                            }
+                        }
+                        writer.WriteLine("");
+                    }
+                    writer.Close();
+                    MessageBox.Show("Ticket Rate Updated");
+                }
+                else
+                {
+                    MessageBox.Show("No permission");
+                }
+                ReadWeekdayTicketRate();
+            }
+            else if (index == 1)
+            {
+                if (GlobalValues.IsAdmin)
+                {
+                    TextWriter writer = new StreamWriter(GlobalValues.HolidayFilepath);
+                    for (int i = 0; i < rateView.Rows.Count; i++)
+                    {
+                        for (int j = 0; j < rateView.Columns.Count; j++)
+                        {
+                            writer.Write(rateView.Rows[i].Cells[j].Value.ToString());
+                            if (j < rateView.Columns.Count - 1)
+                            {
+                                writer.Write(",");
+                            }
+                        }
+                        writer.WriteLine("");
+                    }
+                    writer.Close();
+                    MessageBox.Show("Ticket Rate Updated");
+                }
+                else
+                {
+                    MessageBox.Show("No permission");
+                }
+                ReadHolidayTicketRate();
+            }
         }
     }
 }

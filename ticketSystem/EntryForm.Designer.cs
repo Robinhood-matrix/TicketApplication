@@ -38,6 +38,8 @@ namespace ticketSystem
             this.idNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.rateView = new System.Windows.Forms.DataGridView();
             this.dayComboBox = new System.Windows.Forms.ComboBox();
+            this.dayCombo = new System.Windows.Forms.ComboBox();
+            this.dayLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.countNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.idNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rateView)).BeginInit();
@@ -47,7 +49,7 @@ namespace ticketSystem
             // 
             this.ticketLabel.AutoSize = true;
             this.ticketLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ticketLabel.Location = new System.Drawing.Point(35, 95);
+            this.ticketLabel.Location = new System.Drawing.Point(27, 95);
             this.ticketLabel.Name = "ticketLabel";
             this.ticketLabel.Size = new System.Drawing.Size(89, 25);
             this.ticketLabel.TabIndex = 0;
@@ -57,7 +59,7 @@ namespace ticketSystem
             // 
             this.typeLabel.AutoSize = true;
             this.typeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.typeLabel.Location = new System.Drawing.Point(43, 157);
+            this.typeLabel.Location = new System.Drawing.Point(27, 206);
             this.typeLabel.Name = "typeLabel";
             this.typeLabel.Size = new System.Drawing.Size(57, 25);
             this.typeLabel.TabIndex = 1;
@@ -73,7 +75,7 @@ namespace ticketSystem
             "Group of 5",
             "Group of 10",
             "Group of 15"});
-            this.typeComboBox.Location = new System.Drawing.Point(206, 157);
+            this.typeComboBox.Location = new System.Drawing.Point(198, 206);
             this.typeComboBox.Name = "typeComboBox";
             this.typeComboBox.Size = new System.Drawing.Size(121, 33);
             this.typeComboBox.TabIndex = 8;
@@ -82,7 +84,7 @@ namespace ticketSystem
             // 
             this.countLabel.AutoSize = true;
             this.countLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.countLabel.Location = new System.Drawing.Point(35, 217);
+            this.countLabel.Location = new System.Drawing.Point(27, 266);
             this.countLabel.Name = "countLabel";
             this.countLabel.Size = new System.Drawing.Size(65, 25);
             this.countLabel.TabIndex = 10;
@@ -91,7 +93,7 @@ namespace ticketSystem
             // countNumericUpDown
             // 
             this.countNumericUpDown.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.countNumericUpDown.Location = new System.Drawing.Point(207, 217);
+            this.countNumericUpDown.Location = new System.Drawing.Point(199, 266);
             this.countNumericUpDown.Name = "countNumericUpDown";
             this.countNumericUpDown.Size = new System.Drawing.Size(120, 30);
             this.countNumericUpDown.TabIndex = 11;
@@ -99,33 +101,39 @@ namespace ticketSystem
             // entryBtn
             // 
             this.entryBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.entryBtn.Location = new System.Drawing.Point(206, 384);
+            this.entryBtn.Location = new System.Drawing.Point(175, 326);
             this.entryBtn.Name = "entryBtn";
-            this.entryBtn.Size = new System.Drawing.Size(90, 42);
+            this.entryBtn.Size = new System.Drawing.Size(160, 42);
             this.entryBtn.TabIndex = 15;
-            this.entryBtn.Text = "Entry";
+            this.entryBtn.Text = "Enter Customer";
             this.entryBtn.UseVisualStyleBackColor = true;
             this.entryBtn.Click += new System.EventHandler(this.entryBtn_Click);
             // 
             // idNumericUpDown
             // 
             this.idNumericUpDown.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.idNumericUpDown.Location = new System.Drawing.Point(206, 95);
+            this.idNumericUpDown.Location = new System.Drawing.Point(199, 95);
             this.idNumericUpDown.Name = "idNumericUpDown";
             this.idNumericUpDown.Size = new System.Drawing.Size(120, 30);
             this.idNumericUpDown.TabIndex = 17;
+            this.idNumericUpDown.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // rateView
             // 
             this.rateView.AllowUserToAddRows = false;
             this.rateView.AllowUserToDeleteRows = false;
             this.rateView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.rateView.Location = new System.Drawing.Point(586, 189);
+            this.rateView.Location = new System.Drawing.Point(508, 233);
             this.rateView.Name = "rateView";
             this.rateView.RowHeadersWidth = 51;
             this.rateView.RowTemplate.Height = 24;
-            this.rateView.Size = new System.Drawing.Size(538, 353);
+            this.rateView.Size = new System.Drawing.Size(623, 353);
             this.rateView.TabIndex = 19;
+            this.rateView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.rateView_CellContentClick);
             // 
             // dayComboBox
             // 
@@ -134,17 +142,42 @@ namespace ticketSystem
             this.dayComboBox.Items.AddRange(new object[] {
             "Weekdays",
             "Holidays"});
-            this.dayComboBox.Location = new System.Drawing.Point(637, 95);
+            this.dayComboBox.Location = new System.Drawing.Point(621, 160);
             this.dayComboBox.Name = "dayComboBox";
             this.dayComboBox.Size = new System.Drawing.Size(401, 33);
             this.dayComboBox.TabIndex = 20;
             this.dayComboBox.SelectedIndexChanged += new System.EventHandler(this.dayComboBox_SelectedIndexChanged);
             // 
+            // dayCombo
+            // 
+            this.dayCombo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dayCombo.FormattingEnabled = true;
+            this.dayCombo.Items.AddRange(new object[] {
+            "Weekday",
+            "Holiday"});
+            this.dayCombo.Location = new System.Drawing.Point(198, 149);
+            this.dayCombo.Name = "dayCombo";
+            this.dayCombo.Size = new System.Drawing.Size(121, 33);
+            this.dayCombo.TabIndex = 22;
+            // 
+            // dayLabel
+            // 
+            this.dayLabel.AutoSize = true;
+            this.dayLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dayLabel.Location = new System.Drawing.Point(27, 149);
+            this.dayLabel.Name = "dayLabel";
+            this.dayLabel.Size = new System.Drawing.Size(47, 25);
+            this.dayLabel.TabIndex = 21;
+            this.dayLabel.Text = "Day";
+            // 
             // EntryForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.DarkSeaGreen;
             this.ClientSize = new System.Drawing.Size(1161, 642);
+            this.Controls.Add(this.dayCombo);
+            this.Controls.Add(this.dayLabel);
             this.Controls.Add(this.dayComboBox);
             this.Controls.Add(this.rateView);
             this.Controls.Add(this.idNumericUpDown);
@@ -177,5 +210,7 @@ namespace ticketSystem
         private System.Windows.Forms.NumericUpDown idNumericUpDown;
         private System.Windows.Forms.DataGridView rateView;
         private System.Windows.Forms.ComboBox dayComboBox;
+        private System.Windows.Forms.ComboBox dayCombo;
+        private System.Windows.Forms.Label dayLabel;
     }
 }

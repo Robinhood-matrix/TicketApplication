@@ -30,33 +30,21 @@ namespace ticketSystem
         private void InitializeComponent()
         {
             this.rateView = new System.Windows.Forms.DataGridView();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
             this.dayComboBox = new System.Windows.Forms.ComboBox();
+            this.reloadBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.rateView)).BeginInit();
             this.SuspendLayout();
             // 
             // rateView
             // 
+            this.rateView.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             this.rateView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.rateView.Location = new System.Drawing.Point(105, 165);
+            this.rateView.Location = new System.Drawing.Point(146, 95);
             this.rateView.Name = "rateView";
             this.rateView.RowHeadersWidth = 51;
             this.rateView.RowTemplate.Height = 24;
-            this.rateView.Size = new System.Drawing.Size(951, 389);
-            this.rateView.TabIndex = 0;
-            // 
-            // radioButton3
-            // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton3.Location = new System.Drawing.Point(918, 700);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(91, 29);
-            this.radioButton3.TabIndex = 5;
-            this.radioButton3.TabStop = true;
-            this.radioButton3.Text = "3 Hour";
-            this.radioButton3.UseVisualStyleBackColor = true;
-            // 
+            this.rateView.Size = new System.Drawing.Size(849, 389);
+            this.rateView.TabIndex = 0;          // 
             // dayComboBox
             // 
             this.dayComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
@@ -65,33 +53,43 @@ namespace ticketSystem
             this.dayComboBox.Items.AddRange(new object[] {
             "Weekdays",
             "Holidays"});
-            this.dayComboBox.Location = new System.Drawing.Point(280, 100);
+            this.dayComboBox.Location = new System.Drawing.Point(263, 55);
             this.dayComboBox.Name = "dayComboBox";
             this.dayComboBox.Size = new System.Drawing.Size(597, 24);
             this.dayComboBox.TabIndex = 6;
             this.dayComboBox.SelectedIndexChanged += new System.EventHandler(this.dayComboBox_SelectedIndexChanged);
             // 
+            // reloadBtn
+            // 
+            this.reloadBtn.Location = new System.Drawing.Point(454, 506);
+            this.reloadBtn.Name = "reloadBtn";
+            this.reloadBtn.Size = new System.Drawing.Size(203, 46);
+            this.reloadBtn.TabIndex = 7;
+            this.reloadBtn.Text = "Reload";
+            this.reloadBtn.UseVisualStyleBackColor = true;
+            this.reloadBtn.Click += new System.EventHandler(this.reloadBtn_Click);
+            // 
             // TicketRate
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1161, 642);
+            this.ClientSize = new System.Drawing.Size(1161, 630);
+            this.Controls.Add(this.reloadBtn);
             this.Controls.Add(this.dayComboBox);
-            this.Controls.Add(this.radioButton3);
             this.Controls.Add(this.rateView);
             this.Name = "TicketRate";
             this.Text = "Ticket Rate";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.TicketRate_Load);
             ((System.ComponentModel.ISupportInitialize)(this.rateView)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
         private System.Windows.Forms.DataGridView rateView;
-        private System.Windows.Forms.RadioButton radioButton3;
         private System.Windows.Forms.ComboBox dayComboBox;
+        private System.Windows.Forms.Button reloadBtn;
     }
 }

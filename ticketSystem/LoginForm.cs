@@ -9,26 +9,28 @@ namespace ticketSystem
         {
             InitializeComponent();
         }
-
-        private void label1_Click(object sender, EventArgs e)
+        private void LoginPage_Load(object sender, EventArgs e)
         {
+           
+
 
         }
+
 
         private void LoginBtn_Click(object sender, EventArgs e)
         {
 
             string un = usrNameTxtBox.Text;
             string pw = pwdTxtBox.Text;
-            if (usrNameTxtBox.Text != string.Empty || pwdTxtBox.Text != string.Empty)
+            if (usrNameTxtBox.Text != string.Empty || pwdTxtBox.Text != string.Empty)//runs code if the user and password text box is not empty. 
             {
 
-                if (un == GlobalValues.UserName)
+                if (un == GlobalValues.UserName)//checking wether username and password is incorrect 
                 {
                     if (pw == GlobalValues.Password)
                     {
                         GlobalValues.IsAdmin = true;
-                        MainForm form1 = new MainForm();
+                        AdminPanel form1 = new AdminPanel();
                         this.Hide();
                         form1.Show();
 
@@ -63,23 +65,8 @@ namespace ticketSystem
             this.Close();
         }
 
-        private void showPwdCheckBox_CheckedChanged(object sender, EventArgs e)
-        {
-            if (showPwdCheckBox.Checked == true)
-            {
-                pwdTxtBox.UseSystemPasswordChar = false;
-            }
-            else
-            {
-                pwdTxtBox.UseSystemPasswordChar = true;
-            }
-        }
-        private void LoginPage_Load(object sender, EventArgs e)
-        {
-
-
-        }
-
+       
+       
         private void timer1_Tick(object sender, EventArgs e)
         {
             labelDate.Text = DateTime.Now.ToString();
@@ -88,10 +75,24 @@ namespace ticketSystem
         private void userBtn_Click(object sender, EventArgs e)
         {
             GlobalValues.IsAdmin = false;
-            MainForm form1 = new MainForm();
+            UserPanel form1 = new UserPanel();
             this.Hide();
             form1.Show();
 
+        }
+
+        private void ShowPwdCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+         
+           if (ShowPwdCheckBox.Checked == true)
+           {
+               pwdTxtBox.UseSystemPasswordChar = false;
+           }
+           else
+           {
+               pwdTxtBox.UseSystemPasswordChar = true;
+           }
+          
         }
     }
 }

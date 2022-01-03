@@ -29,149 +29,102 @@ namespace ticketSystem
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.dailyReportView = new System.Windows.Forms.DataGridView();
+            this.Day = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Visitors = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Duration = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Income = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dailyReportRadioBtn = new System.Windows.Forms.RadioButton();
+            this.weeklyReportRadioBtn = new System.Windows.Forms.RadioButton();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            ((System.ComponentModel.ISupportInitialize)(this.dailyReportView)).BeginInit();
             this.SuspendLayout();
             // 
-            // label1
+            // dailyReportView
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(74, 151);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(57, 25);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Type";
+            this.dailyReportView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dailyReportView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Day,
+            this.Visitors,
+            this.Duration,
+            this.Income});
+            this.dailyReportView.Location = new System.Drawing.Point(71, 213);
+            this.dailyReportView.Name = "dailyReportView";
+            this.dailyReportView.RowHeadersWidth = 51;
+            this.dailyReportView.RowTemplate.Height = 24;
+            this.dailyReportView.Size = new System.Drawing.Size(551, 219);
+            this.dailyReportView.TabIndex = 0;
             // 
-            // label2
+            // Day
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(65, 252);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(85, 25);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Children";
+            this.Day.HeaderText = "Day";
+            this.Day.MinimumWidth = 6;
+            this.Day.Name = "Day";
+            this.Day.Width = 125;
             // 
-            // label3
+            // Visitors
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(65, 314);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(57, 25);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Adult";
+            this.Visitors.HeaderText = "Entry Count";
+            this.Visitors.MinimumWidth = 6;
+            this.Visitors.Name = "Visitors";
+            this.Visitors.Width = 125;
             // 
-            // label4
+            // Duration
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(65, 379);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(66, 25);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "Group";
+            this.Duration.HeaderText = "Total No. of Customers";
+            this.Duration.MinimumWidth = 6;
+            this.Duration.Name = "Duration";
+            this.Duration.Width = 125;
             // 
-            // label5
+            // Income
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(65, 451);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(56, 25);
-            this.label5.TabIndex = 0;
-            this.label5.Text = "Total";
+            this.Income.HeaderText = "Total Income";
+            this.Income.MinimumWidth = 6;
+            this.Income.Name = "Income";
+            this.Income.Width = 125;
             // 
-            // label6
+            // dailyReportRadioBtn
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(727, 204);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(65, 25);
-            this.label6.TabIndex = 0;
-            this.label6.Text = "Count";
+            this.dailyReportRadioBtn.AutoSize = true;
+            this.dailyReportRadioBtn.Location = new System.Drawing.Point(84, 68);
+            this.dailyReportRadioBtn.Name = "dailyReportRadioBtn";
+            this.dailyReportRadioBtn.Size = new System.Drawing.Size(171, 21);
+            this.dailyReportRadioBtn.TabIndex = 1;
+            this.dailyReportRadioBtn.TabStop = true;
+            this.dailyReportRadioBtn.Text = "Generate Daily Report";
+            this.dailyReportRadioBtn.UseVisualStyleBackColor = true;
             // 
-            // label8
+            // weeklyReportRadioBtn
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(727, 298);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(115, 25);
-            this.label8.TabIndex = 0;
-            this.label8.Text = "Transaction";
+            this.weeklyReportRadioBtn.AutoSize = true;
+            this.weeklyReportRadioBtn.Location = new System.Drawing.Point(84, 120);
+            this.weeklyReportRadioBtn.Name = "weeklyReportRadioBtn";
+            this.weeklyReportRadioBtn.Size = new System.Drawing.Size(186, 21);
+            this.weeklyReportRadioBtn.TabIndex = 2;
+            this.weeklyReportRadioBtn.TabStop = true;
+            this.weeklyReportRadioBtn.Text = "Generate Weekly Report";
+            this.weeklyReportRadioBtn.UseVisualStyleBackColor = true;
             // 
-            // comboBox1
+            // dateTimePicker1
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "Weekly",
-            "Daily"});
-            this.comboBox1.Location = new System.Drawing.Point(200, 150);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 24);
-            this.comboBox1.TabIndex = 1;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(74, 204);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(47, 25);
-            this.label7.TabIndex = 2;
-            this.label7.Text = "Day";
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
-            "Weekly",
-            "Daily"});
-            this.comboBox2.Location = new System.Drawing.Point(200, 208);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 24);
-            this.comboBox2.TabIndex = 1;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(377, 182);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Search";
-            this.button1.UseVisualStyleBackColor = true;
+            this.dateTimePicker1.Location = new System.Drawing.Point(771, 43);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(200, 22);
+            this.dateTimePicker1.TabIndex = 3;
             // 
             // ReportForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1161, 642);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.weeklyReportRadioBtn);
+            this.Controls.Add(this.dailyReportRadioBtn);
+            this.Controls.Add(this.dailyReportView);
             this.Name = "ReportForm";
             this.Text = "Report Form";
             this.Load += new System.EventHandler(this.ReportForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dailyReportView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -179,16 +132,13 @@ namespace ticketSystem
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DataGridView dailyReportView;
+        private System.Windows.Forms.RadioButton dailyReportRadioBtn;
+        private System.Windows.Forms.RadioButton weeklyReportRadioBtn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Day;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Visitors;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Duration;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Income;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
     }
 }

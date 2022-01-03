@@ -8,10 +8,11 @@ namespace ticketSystem
 {
     class Ticket
     {
-        public String TicketType { get; set; }
+        public string TicketType { get; set; }
         public int Rate1Hr { get; set; }
-        public int  Rate2Hr { get; set; }
+        public int Rate2Hr { get; set; }
         public int Rate3Hr { get; set; }
-       public int Rate4Hr { get; set; }
+        public int Rate4Hr { get; set; }
+        public int RateWholeDay { get; set; }
     }
 }
